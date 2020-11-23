@@ -1,0 +1,18 @@
+{
+    "type": "postgres",
+    "host": "0.0.0.0",
+    "port": 5432,
+    "username": "postgres",
+    "password": "",
+    "database": "db_calendar_api",
+    "entities": [],
+    "synchronize": false,
+    "migrationsTableName": "tb_migration",
+    "migrations": [
+      "src/database/migrations/*.ts"
+    ],
+    "cli": {
+      "migrationsDir": "src/database/migrations"
+    },
+    "maxQueryExecutionTime": 10000
+  }

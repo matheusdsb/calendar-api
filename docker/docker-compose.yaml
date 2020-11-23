@@ -1,0 +1,23 @@
+version: "3.3"
+services:
+    database:
+        container_name: "${COMPOSE_PROJECT_NAME}_database"
+        env_file: .env
+        image: ${COMPOSE_PROJECT_NAME}_database
+        restart: always
+        command: "postgres"
+        build:
+            context: .
+            dockerfile: ./database/Dockerfile
+        network_mode: bridge
+        environment:
+            POSTGRES_USER: ${DATABASE_USER}
+            POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+            POSTGRES_DB: ${DATABASE_NAME}
+        ports:
+            - 5432:5432
+        volumes:
+            - ./database/scripts:/docker-entrypoint-initdb.d/
+            - database:/var/lib/postgresql/data
+volumes:
+    database:
