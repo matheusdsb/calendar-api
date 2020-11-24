@@ -12,7 +12,7 @@ export class CreateTableEvent1606106325180 implements MigrationInterface {
 
             CREATE TABLE tb_event
             (
-                id integer NOT NULL DEFAULT nextval('sq_event'),
+                id integer NOT NULL DEFAULT nextval('sq_event'::regclass),
                 name character varying(255) NOT NULL,
                 start_date_time timestamp without time zone NOT NULL,
                 duration_time time without time zone NOT NULL,
