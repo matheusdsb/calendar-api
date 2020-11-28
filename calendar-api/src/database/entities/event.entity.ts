@@ -1,5 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, OneToOne } from "typeorm";
 import { DailyEvent } from './daily-event.entity';
+import { WeeklyEvent } from './weekly-event.entity';
 
 @Entity('tb_event')
 export class Event {
@@ -16,10 +17,9 @@ export class Event {
     @Column({ type: 'time without time zone', name: 'duration_time'})
     durationTime: string;
 
-    @OneToOne(
-		type => DailyEvent,
-		d => d.event,
-		{ nullable: true }
-	)
+    @OneToOne(type => DailyEvent, d => d.event, { nullable: true })
 	dailyEvent?: DailyEvent;
+
+	@OneToOne(type => WeeklyEvent, w => w.event, { nullable: true })
+	weeklyEvent?: WeeklyEvent;
 }

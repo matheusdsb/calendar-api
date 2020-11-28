@@ -1,6 +1,5 @@
 import { TypeOrmModuleOptions } from "@nestjs/typeorm";
-import { DailyEvent } from "./entities/daily-event.entity";
-import { Event } from './entities/event.entity';
+import schema from './schema'
 
 class DatabaseConfig {
     static getTypeOrmConfig() : TypeOrmModuleOptions  {
@@ -11,7 +10,7 @@ class DatabaseConfig {
             username: process.env.DATABASE_USER,            
             password: process.env.DATABASE_PASSWORD,            
             database: process.env.DATABASE_NAME,            
-            entities: [ Event, DailyEvent ],
+            entities: schema,
             synchronize: false,
             maxQueryExecutionTime: 10000
         }

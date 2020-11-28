@@ -1,6 +1,5 @@
 import { Connection } from "typeorm";
 import { DailyEvent } from '../entities/daily-event.entity';
-import { Event } from '../entities/event.entity';
 import { EventBuilder } from './event.builder';
 
 export class DailyEventBuilder {
